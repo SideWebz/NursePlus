@@ -1,0 +1,323 @@
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  width: 100%;
+  line-height: 0;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   OVER NURSEPLUS
+   ============================================================ */
+
+.over-section {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--s7);
+  align-items: start;
+}
+
+.over-title {
+  font-size: clamp(2.5rem, 2rem + 4vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: var(--s6);
+}
+
+.over-img-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s2);
+}
+
+.over-img-row img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--s2);
+}
+
+.over-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.over-block {
+  padding: var(--s6) 0;
+  border-bottom: 1px solid rgba(20, 32, 51, 0.12);
+}
+
+.over-block:first-child {
+  padding-top: 0;
+}
+
+.over-block-title {
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: var(--s3);
+}
+
+.over-block-text {
+  color: var(--muted);
+  font-size: clamp(0.9rem, 0.87rem + 0.15vw, 1rem);
+  line-height: 1.7;
+}
+
+.over-contact-btn {
+  display: block;
+  text-align: center;
+  border: 1.5px solid var(--text);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: var(--s4) var(--s5);
+  margin-top: var(--s6);
+  border-radius: 0;
+  transition: background var(--ease), color var(--ease);
+}
+
+.over-contact-btn:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* ============================================================
+   OVER MIJ
+   ============================================================ */
+
+.over-mij-section {
+  position: relative;
+  background: #c490b0;
+  padding: clamp(var(--s6), 5vw, var(--s7)) 0;
+  overflow: hidden;
+}
+
+.over-mij-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/noise.png");
+  opacity: 0.05;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.over-mij-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s6);
+}
+
+.over-mij-title {
+  font-size: clamp(2.5rem, 2rem + 4vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.over-mij-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--s7);
+  align-items: start;
+}
+
+.over-mij-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--s2);
+  display: block;
+}
+
+.over-mij-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s6);
+  padding-top: var(--s2);
+}
+
+.over-mij-block-title {
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: var(--s3);
+}
+
+.over-mij-block-text {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+}
+
+.over-mij-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.over-mij-contact-list li {
+  font-style: italic;
+  font-size: clamp(0.9rem, 0.87rem + 0.2vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .over-section {
+    grid-template-columns: 1fr;
+  }
+
+  .over-mij-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .over-img-row {
+    gap: var(--s1);
+  }
+
+  .over-img-row img {
+    border-radius: var(--s1);
+  }
+
+  .over-block {
+    padding: var(--s5) 0;
+  }
+
+  .over-mij-img {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+/* ============================================================
+   ONZE DIENSTEN
+   ============================================================ */
+.diensten-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s6);
+}
+.diensten-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s5);
+}
+.diensten-title {
+  font-size: clamp(2.5rem, 2rem + 4vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.diensten-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--text);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: var(--s3) var(--s6);
+  border-radius: 0;
+  transition: background var(--ease), color var(--ease);
+  white-space: nowrap;
+}
+.diensten-btn:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+.diensten-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s6);
+  align-items: stretch;
+}
+.diensten-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s5);
+}
+.diensten-col:has(.diensten-divider) {
+  justify-content: space-between;
+}
+.diensten-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--s2);
+  display: block;
+}
+.diensten-block-title {
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: var(--s3);
+}
+.diensten-block-text {
+  color: var(--muted);
+  font-size: clamp(0.9rem, 0.87rem + 0.15vw, 1rem);
+  line-height: 1.7;
+}
+.diensten-divider {
+  border: none;
+  border-top: 1.5px solid var(--text);
+  margin: 0;
+  width: 100%;
+}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .diensten-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .diensten-col:first-child {
+    grid-column: 1 / -1;
+  }
+  .diensten-col:has(.diensten-divider) {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .diensten-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .diensten-grid {
+    grid-template-columns: 1fr;
+  }
+  .diensten-col:first-child {
+    grid-column: auto;
+  }
+}

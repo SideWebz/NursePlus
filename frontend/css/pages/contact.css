@@ -1,0 +1,165 @@
+/* ============================================================
+   OVER MUTUALITEIT
+   ============================================================ */
+.over-section {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--s7);
+  align-items: stretch;
+}
+.over-title {
+  font-size: clamp(2.5rem, 2rem + 4vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: var(--s6);
+}
+.over-img-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s2);
+}
+.over-img-row img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--s2);
+}
+.over-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.over-block {
+  padding: var(--s6) 0;
+}
+.over-block:first-child {
+  padding-top: 0;
+}
+.over-block:last-child {
+  padding-bottom: 0;
+}
+.over-block-title {
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: var(--s3);
+}
+.over-block-text {
+  color: var(--muted);
+  font-size: clamp(0.9rem, 0.87rem + 0.15vw, 1rem);
+  line-height: 1.7;
+}
+.over-divider {
+  border: none;
+  border-top: 1.5px solid var(--text);
+  margin: 0;
+  width: 100%;
+}
+/* ============================================================
+   OVER MIJ
+   ============================================================ */
+.over-mij-section {
+  position: relative;
+  background: #c490b0;
+  padding: clamp(var(--s6), 5vw, var(--s7)) 0;
+  overflow: hidden;
+}
+.over-mij-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/noise.png");
+  opacity: 0.05;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.over-mij-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s6);
+}
+.over-mij-title {
+  font-size: clamp(2.5rem, 2rem + 4vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.over-mij-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--s7);
+  align-items: start;
+}
+.over-mij-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--s2);
+  display: block;
+}
+.over-mij-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s6);
+  padding-top: var(--s2);
+}
+.over-mij-block-title {
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: var(--s3);
+}
+.over-mij-block-text {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+}
+.over-mij-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+.over-mij-contact-list li {
+  font-style: italic;
+  font-size: clamp(0.9rem, 0.87rem + 0.2vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.02em;
+}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .over-section {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .over-right {
+    justify-content: flex-start;
+    gap: var(--s5);
+  }
+  .over-mij-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .over-img-row {
+    gap: var(--s1);
+  }
+  .over-img-row img {
+    border-radius: var(--s1);
+  }
+  .over-block {
+    padding: var(--s5) 0;
+  }
+  .over-mij-img {
+    aspect-ratio: 3 / 2;
+  }
+}
