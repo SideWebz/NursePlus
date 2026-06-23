@@ -63,7 +63,7 @@ async function handleRequest(req: Request): Promise<Response> {
 function normalize(raw: string): string {
   const pathname = decodeURIComponent(raw.split("?")[0] ?? raw);
   const trimmed = pathname.replace(/\/+$/, "");
-  return trimmed === "" ? "/" : trimmed.toLowerCase();
+  return trimmed === "" ? "/" : trimmed;
 }
 
 function isStaticAsset(pathname: string): boolean {
@@ -133,7 +133,7 @@ async function serveFile(baseDir: string, relativePath: string, headOnly: boolea
     const info = await Deno.stat(filePath);
     if (!info.isFile) return text("Not Found", 404);
 
-    const ext = filePath.slice(filePath.lastIndexOf(".")).toLowerCase();
+    const ext = filePath.slice(filePath.lastIndexOf("."));
     const contentType = mime[ext] ?? "application/octet-stream";
     const cacheControl = DEV || ext === ".css" ? "no-store" : "public, max-age=86400";
 
