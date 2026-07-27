@@ -13,35 +13,56 @@ const menu = document.getElementById("mobile-menu");
 
 if (toggleBtn && menu) {
   let open = false;
+  let closeTimer = null;
 
   const setOpen = (next) => {
     open = next;
     toggleBtn.classList.toggle("open", open);
     toggleBtn.setAttribute("aria-expanded", String(open));
     toggleBtn.setAttribute("aria-label", open ? "Menu sluiten" : "Menu openen");
-    menu.classList.toggle("open", open);
 
     if (open) {
+      if (closeTimer) {
+        window.clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+
       menu.hidden = false;
+      menu.setAttribute("aria-hidden", "false");
+      document.body.classList.add("menu-open");
+      document.documentElement.classList.add("menu-open");
+
+      requestAnimationFrame(() => {
+        menu.classList.add("open");
+      });
+
+      menu.querySelectorAll(".nav-list--mobile li").forEach((item, index) => {
+        item.style.setProperty("--item-index", String(index));
+      });
+    } else {
+      menu.classList.remove("open");
+      menu.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("menu-open");
+      document.documentElement.classList.remove("menu-open");
+
+      closeTimer = window.setTimeout(() => {
+        menu.hidden = true;
+      }, 260);
     }
   };
 
-  // Hide element after close transition ends.
-  menu.addEventListener("transitionend", () => {
-    if (!open) menu.hidden = true;
-  });
-
-  // Toggle on button click.
   toggleBtn.addEventListener("click", () => setOpen(!open));
 
-  // Close on link click or backdrop click.
-  menu.addEventListener("click", (e) => {
-    if (!(e.target instanceof Element)) return;
-    if (e.target.closest("a") || e.target === menu) setOpen(false);
+  menu.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) return;
+    if (event.target === menu || event.target.closest("a")) {
+      setOpen(false);
+    }
   });
 
-  // Close on ESC.
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && open) setOpen(false);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && open) {
+      setOpen(false);
+    }
   });
 }

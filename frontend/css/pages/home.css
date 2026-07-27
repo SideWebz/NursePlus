@@ -97,13 +97,123 @@
 }
 
 /* ============================================================
+   RESPONSIVE — OVER NURSEPLUS
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+  .over-section {
+    grid-template-columns: 1fr;
+    gap: var(--s6);
+  }
+
+  .over-title {
+    margin-bottom: var(--s5);
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .over-title {
+    margin-bottom: var(--s4);
+  }
+
+  .over-img-row {
+    gap: var(--s1);
+  }
+
+  .over-block {
+    padding: var(--s5) 0;
+  }
+
+  .over-contact-btn {
+    margin-top: var(--s5);
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  .over-img-row img {
+    aspect-ratio: 1 / 1;
+  }
+
+}
+
+/* ============================================================
+   ONS TEAM (binnen Over NursePlus sectie)
+   ============================================================ */
+
+.team-section {
+  margin-top: clamp(var(--s6), 5vw, var(--s7));
+  padding-top: var(--s6);
+  border-top: 1px solid rgba(20, 32, 51, 0.12);
+}
+
+.team-title {
+  font-size: clamp(1.3rem, 1rem + 1.4vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: var(--s5);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s3);
+}
+
+.team-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--s2);
+  display: block;
+}
+
+/* ---- Tablet ---- */
+@media (max-width: 900px) {
+  .team-grid {
+    gap: var(--s2);
+  }
+}
+
+/* ---- Mobiel: kleinere gap, iets vierkanter beeld zodat gezichten goed passen ---- */
+@media (max-width: 640px) {
+  .team-section {
+    margin-top: var(--s6);
+    padding-top: var(--s5);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .team-img {
+    aspect-ratio: 3 / 4;
+    border-radius: var(--s1);
+  }
+}
+
+/* ---- Zeer smal scherm: nog compacter zodat foto's niet te klein knijpen ---- */
+@media (max-width: 400px) {
+  .team-img {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* ============================================================
    OVER MIJ
    ============================================================ */
 
 .over-mij-section {
   position: relative;
   background: #c490b0;
-  padding: clamp(var(--s6), 5vw, var(--s7)) 0;
+  padding: clamp(var(--s5), 4vw, var(--s6)) 0;
   overflow: hidden;
 }
 
@@ -120,11 +230,11 @@
 .over-mij-inner {
   display: flex;
   flex-direction: column;
-  gap: var(--s6);
+  gap: var(--s5);
 }
 
 .over-mij-title {
-  font-size: clamp(2.5rem, 2rem + 4vw, 5rem);
+  font-size: clamp(2.2rem, 1.8rem + 3.2vw, 4.2rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -132,27 +242,42 @@
   color: #fff;
 }
 
+
+/* ============================================================
+   GRID 50 / 50
+   ============================================================ */
+
 .over-mij-grid {
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: var(--s7);
-  align-items: start;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: clamp(var(--s5), 4vw, var(--s6));
+  align-items: center;
 }
+
+
+/* ============================================================
+   IMAGE
+   ============================================================ */
 
 .over-mij-img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 11;
   object-fit: cover;
   border-radius: var(--s2);
   display: block;
 }
 
+
+/* ============================================================
+   TEXT CONTENT
+   ============================================================ */
+
 .over-mij-right {
   display: flex;
   flex-direction: column;
-  gap: var(--s6);
-  padding-top: var(--s2);
+  gap: var(--s4);
 }
+
 
 .over-mij-block-title {
   font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
@@ -160,13 +285,21 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #fff;
-  margin-bottom: var(--s3);
+  margin-bottom: var(--s2);
 }
+
 
 .over-mij-block-text {
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.7;
+  line-height: 1.6;
+  max-width: 52ch;
+  font-size: clamp(0.88rem, 0.85rem + 0.15vw, 0.98rem);
 }
+
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
 
 .over-mij-contact-list {
   display: flex;
@@ -181,36 +314,32 @@
   letter-spacing: 0.02em;
 }
 
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 
 @media (max-width: 900px) {
-  .over-section {
-    grid-template-columns: 1fr;
-  }
 
   .over-mij-grid {
     grid-template-columns: 1fr;
+    gap: var(--s5);
   }
+
 }
 
+
 @media (max-width: 640px) {
-  .over-img-row {
-    gap: var(--s1);
-  }
-
-  .over-img-row img {
-    border-radius: var(--s1);
-  }
-
-  .over-block {
-    padding: var(--s5) 0;
-  }
 
   .over-mij-img {
     aspect-ratio: 3 / 2;
+    border-radius: var(--s1);
   }
+
+  .over-mij-block + .over-mij-block {
+    margin-top: calc(var(--s2) * -1);
+  }
+
 }
 
 /* ============================================================
@@ -295,6 +424,55 @@
   margin: 0;
   width: 100%;
 }
+
+/* ============================================================
+   UITGELICHTE DIENST: PALLIATIEVE ZORG
+   ============================================================ */
+.diensten-extra {
+  padding-top: var(--s6);
+  border-top: 1.5px solid var(--text);
+}
+.diensten-extra-content {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--s6);
+  align-items: center;
+}
+.diensten-extra-text {
+  max-width: 60ch;
+}
+.diensten-extra-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c490b0;
+  margin-bottom: var(--s2);
+}
+.diensten-extra-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--s2);
+  display: block;
+  order: 2;
+}
+.diensten-note {
+  margin-top: var(--s5);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--muted);
+}
+.diensten-note a {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.diensten-note a:hover {
+  color: #c490b0;
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
@@ -307,6 +485,13 @@
   }
   .diensten-col:has(.diensten-divider) {
     justify-content: flex-start;
+  }
+  .diensten-extra-content {
+    grid-template-columns: 1fr;
+  }
+  .diensten-extra-img {
+    order: -1;
+    aspect-ratio: 16 / 9;
   }
 }
 @media (max-width: 640px) {
