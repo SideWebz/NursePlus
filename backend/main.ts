@@ -57,7 +57,7 @@ async function handleRequest(req: Request): Promise<Response> {
     return text(`Not Found: ${pathname}`, 404);
   }
 
-  return assemblePage(pageName, req.method === "HEAD");
+  return assemblePage(pageName, req.method === "HEAD", req);
 }
 
 function normalize(raw: string): string {
@@ -70,7 +70,7 @@ function isStaticAsset(pathname: string): boolean {
   return /\.(css|js|png|jpe?g|gif|svg|webp|ico)$/.test(pathname);
 }
 
-async function assemblePage(pageName: string, headOnly: boolean): Promise<Response> {
+async function assemblePage(pageName: string, headOnly: boolean, req: Request): Promise<Response> {
   try {
     const [template, nav, footer, content, metaRaw] = await Promise.all([
       Deno.readTextFile(`${FRONTEND_DIR}/template.html`),
@@ -90,17 +90,22 @@ async function assemblePage(pageName: string, headOnly: boolean): Promise<Respon
 
     const pageCSSTag = meta.pageCSS ? `<link rel="stylesheet" href="${meta.pageCSS}" />` : "";
     const devScripts = DEV ? `<script src="/js/livereload.js"></script>` : "";
+    const origin = new URL(req.url).origin;
+    const ogImage = `${origin}/images/NursePlusCard.jpg`;
+    const ogUrl = `${origin}${normalize(new URL(req.url).pathname)}`;
 
     const html = template
-      .replace("{{title}}", meta.title)
-      .replace("{{description}}", meta.description)
-      .replace("{{keywords}}", meta.keywords)
-      .replace("{{robots}}", meta.robots)
-      .replace("{{pageCSS}}", pageCSSTag)
-      .replace("{{devScripts}}", devScripts)
-      .replace("{{nav}}", nav)
-      .replace("{{content}}", content)
-      .replace("{{footer}}", footer);
+      .replaceAll("{{title}}", meta.title)
+      .replaceAll("{{description}}", meta.description)
+      .replaceAll("{{keywords}}", meta.keywords)
+      .replaceAll("{{robots}}", meta.robots)
+      .replaceAll("{{ogImage}}", ogImage)
+      .replaceAll("{{ogUrl}}", ogUrl)
+      .replaceAll("{{pageCSS}}", pageCSSTag)
+      .replaceAll("{{devScripts}}", devScripts)
+      .replaceAll("{{nav}}", nav)
+      .replaceAll("{{content}}", content)
+      .replaceAll("{{footer}}", footer);
 
     const headers: Record<string, string> = {
       "Content-Type": "text/html; charset=utf-8",

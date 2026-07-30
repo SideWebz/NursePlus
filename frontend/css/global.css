@@ -60,6 +60,11 @@ svg {
   --text: #142033;
   --muted: #5d687d;
 
+  /* Footer palette */
+  --footer-bg: #c490b0;
+  --footer-border: rgba(255, 255, 255, 0.2);
+  --footer-text-muted: rgba(255, 255, 255, 0.75);
+
   /* Spacing scale */
   --s1: 4px;
   --s2: 8px;
@@ -490,7 +495,7 @@ nav {
 
 .footer {
   position: relative;
-  background: #c490b0;
+  background: var(--footer-bg);
   color: #fff;
   overflow: hidden;
 }
@@ -553,7 +558,7 @@ nav {
   flex-direction: column;
   gap: var(--s5);
   padding: var(--s2) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--footer-border);
 }
 
 .footer-info-block {
@@ -602,7 +607,7 @@ a.footer-info-text:focus-visible {
 
 .footer-bottom {
   padding-top: clamp(var(--s6), 4vw, var(--s7));
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--footer-border);
 }
 
 .footer-bottom-inner {
@@ -633,7 +638,7 @@ a.footer-info-text:focus-visible {
 }
 
 .footer-brand-text {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--footer-text-muted);
   font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1rem);
   line-height: 1.6;
   margin-bottom: var(--s5);
@@ -755,7 +760,7 @@ a.footer-info-text:focus-visible {
   align-items: center;
   gap: var(--s4) var(--s6);
   padding: var(--s5) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--footer-border);
 }
 
 .footer-legal-copy,
@@ -845,75 +850,100 @@ a.footer-info-text:focus-visible {
   .footer-logo {
     justify-content: center;
     align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid var(--footer-border);
     padding-top: var(--s6);
     margin-top: var(--s2);
   }
 }
 
+/* Compacte, niet-gecentreerde mobiele layout:
+   brand en nav blijven naast elkaar (2 kolommen) i.p.v. alles
+   onder elkaar en gecentreerd te stapelen. */
 @media (max-width: 640px) {
+
+  .footer-contact-title {
+    font-size: clamp(2.1rem, 1.7rem + 6vw, 2.75rem);
+  }
+
   .footer-contact-img {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
   }
 
   .footer-contact-info {
     gap: var(--s4);
-    padding-top: 0;
+    padding: var(--s5) var(--s4);
+  }
+
+  .footer-info-block {
+    padding-top: var(--s4);
   }
 
   .footer-bottom-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "logo"
-      "brand"
-      "nav";
-    gap: var(--s6);
-    text-align: center;
+      "brand nav"
+      "logo  logo";
+    gap: var(--s5) var(--s4);
+    padding-bottom: var(--s6);
+  }
+
+  .footer-brand-name {
+    font-size: 1.15rem;
+    margin-bottom: var(--s1);
+  }
+
+  .footer-brand-text {
+    font-size: 0.82rem;
+    margin-bottom: var(--s4);
+  }
+
+  .footer-social {
+    gap: var(--s2);
+  }
+
+  .footer-social a {
+    width: 34px;
+    height: 34px;
+  }
+
+  .footer-social a svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer-nav-title {
+    font-size: 0.65rem;
+    margin-bottom: var(--s3);
+  }
+
+  .footer-nav-list {
+    gap: var(--s2);
+  }
+
+  .footer-nav-link {
+    font-size: 0.86rem;
   }
 
   .footer-logo {
-    justify-content: center;
-    align-items: center;
-    border-top: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-top: 0;
-    padding-bottom: var(--s5);
+    border-top: 1px solid var(--footer-border);
+    padding-top: var(--s5);
     margin-top: 0;
   }
 
   .footer-logo-img {
-    height: 40px;
-  }
-
-  .footer-brand {
-    align-items: center;
-  }
-
-  .footer-social {
-    justify-content: center;
-  }
-
-  .footer-nav {
-    align-items: center;
-  }
-
-  .footer-nav-list {
-    align-items: center;
-  }
-
-  .footer-nav-link::after {
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    height: 36px;
   }
 
   .footer-legal {
-    flex-direction: column;
-    text-align: center;
-    padding: var(--s5) 0 var(--s6);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    padding: var(--s4) 0 var(--s5);
+    gap: var(--s3) var(--s4);
   }
 
-  .footer-legal-nav {
+  .footer-legal-copy {
     order: 1;
   }
 
@@ -921,7 +951,25 @@ a.footer-info-text:focus-visible {
     order: 2;
   }
 
-  .footer-legal-copy {
+  .footer-legal-nav {
     order: 3;
+    width: 100%;
+  }
+
+  .footer-legal-list {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--s2);
+  }
+
+  .footer-legal-link {
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .footer-legal-list li:not(:last-child)::after {
+    display: none;
   }
 }
