@@ -1,5 +1,5 @@
 /* ============================================================
-   OVER MUTUALITEIT
+   OVER MUTUALITEIT — contactpagina
    ============================================================ */
 .over-section {
   display: grid;
@@ -7,6 +7,7 @@
   gap: var(--s7);
   align-items: stretch;
 }
+
 .over-title {
   font-size: clamp(2.5rem, 2rem + 4vw, 5rem);
   font-weight: 800;
@@ -16,31 +17,38 @@
   color: var(--text);
   margin-bottom: var(--s6);
 }
+
 .over-img-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--s2);
 }
+
 .over-img-row img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: var(--s2);
 }
+
 .over-right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .over-block {
   padding: var(--s6) 0;
 }
+
 .over-block:first-child {
   padding-top: 0;
 }
+
 .over-block:last-child {
   padding-bottom: 0;
 }
+
 .over-block-title {
   font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
   font-weight: 700;
@@ -49,38 +57,58 @@
   color: var(--text);
   margin-bottom: var(--s3);
 }
+
 .over-block-text {
   color: var(--muted);
   font-size: clamp(0.9rem, 0.87rem + 0.15vw, 1rem);
   line-height: 1.7;
 }
+
 .over-divider {
   border: none;
   border-top: 1.5px solid var(--text);
   margin: 0;
   width: 100%;
 }
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
 @media (max-width: 900px) {
+
   .over-section {
     grid-template-columns: 1fr;
     align-items: start;
   }
+
   .over-right {
     justify-content: flex-start;
     gap: var(--s5);
   }
+
 }
+
 @media (max-width: 640px) {
+
   .over-img-row {
     gap: var(--s1);
   }
+
   .over-img-row img {
     border-radius: var(--s1);
   }
+
   .over-block {
     padding: var(--s5) 0;
   }
+
+}
+
+@media (max-width: 400px) {
+
+  .over-img-row img {
+    aspect-ratio: 1 / 1;
+  }
+
 }

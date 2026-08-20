@@ -3,14 +3,14 @@
    ============================================================ */
 
 .hero {
-width: 100%;
-line-height: 0;
+  width: 100%;
+  line-height: 0;
 }
 
 .hero-img {
-width: 100%;
-height: auto;
-display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ============================================================
@@ -18,123 +18,127 @@ display: block;
    ============================================================ */
 
 .over-section {
-display: grid;
-grid-template-columns: 1fr 360px;
-gap: var(--s7);
-align-items: start;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--s7);
+  align-items: start;
 }
 
 .over-left {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .over-title {
-font-size: clamp(2.5rem, 2rem + 4vw, 5rem);
-font-weight: 800;
-line-height: 1;
-letter-spacing: -0.04em;
-text-transform: uppercase;
-color: var(--text);
-margin-bottom: var(--s6);
+  font-size: clamp(2.5rem, 2rem + 4vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: var(--s6);
 }
 
+/* 6 foto's (3 sfeerbeelden + 3 teamfoto's) in één doorlopend grid van
+   3 kolommen; de derde rij van 3 wordt door de browser vanzelf onder de
+   eerste geplaatst, geen aparte sectie/titel meer nodig. */
 .over-img-row {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: var(--s2);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s2);
+  row-gap: var(--s3);
 }
 
 .over-img-row img {
-width: 100%;
-aspect-ratio: 3 / 4;
-object-fit: cover;
-border-radius: var(--s2);
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--s2);
 }
 
 .over-right {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .over-block {
-padding: var(--s6) 0;
-border-bottom: 1px solid rgba(20, 32, 51, 0.12);
+  padding: var(--s6) 0;
+  border-bottom: 1px solid rgba(20, 32, 51, 0.12);
 }
 
 .over-block:first-child {
-padding-top: 0;
+  padding-top: 0;
 }
 
 .over-block-title {
-font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
-font-weight: 700;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-color: var(--text);
-margin-bottom: var(--s3);
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: var(--s3);
 }
 
 .over-block-text {
-color: var(--muted);
-font-size: clamp(0.9rem, 0.87rem + 0.15vw, 1rem);
-line-height: 1.7;
+  color: var(--muted);
+  font-size: clamp(0.9rem, 0.87rem + 0.15vw, 1rem);
+  line-height: 1.7;
 }
 
 .over-values {
-list-style: none;
-margin: 0;
-padding: 0;
-display: flex;
-flex-direction: column;
-gap: var(--s4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
 }
 
 .over-value {
-position: relative;
-padding-left: var(--s5);
-border-left: 2px solid rgba(20, 32, 51, 0.12);
-transition: border-color var(--ease);
+  position: relative;
+  padding-left: var(--s5);
+  border-left: 2px solid rgba(20, 32, 51, 0.12);
+  transition: border-color var(--ease);
 }
 
 .over-value:hover {
-border-left-color: var(--text);
+  border-left-color: var(--text);
 }
 
 .over-value-name {
-display: block;
-font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
-font-weight: 700;
-letter-spacing: 0.02em;
-color: var(--text);
-margin-bottom: var(--s1);
+  display: block;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: var(--s1);
 }
 
 .over-value-text {
-color: var(--muted);
-font-size: clamp(0.88rem, 0.85rem + 0.15vw, 0.95rem);
-line-height: 1.6;
-margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.88rem, 0.85rem + 0.15vw, 0.95rem);
+  line-height: 1.6;
+  margin: 0;
 }
 
 .over-contact-btn {
-display: block;
-text-align: center;
-border: 1.5px solid var(--text);
-color: var(--text);
-font-size: 0.8rem;
-font-weight: 700;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-padding: var(--s4) var(--s5);
-margin-top: var(--s6);
-border-radius: 0;
-transition: background var(--ease), color var(--ease);
+  display: block;
+  text-align: center;
+  border: 1.5px solid var(--text);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: var(--s4) var(--s5);
+  margin-top: var(--s6);
+  border-radius: 0;
+  transition: background var(--ease), color var(--ease);
 }
 
 .over-contact-btn:hover {
-background: var(--text);
-color: var(--bg);
+  background: var(--text);
+  color: var(--bg);
 }
 
 /* ============================================================
@@ -143,116 +147,52 @@ color: var(--bg);
 
 @media (max-width: 900px) {
 
-.over-section {
-grid-template-columns: 1fr;
-gap: var(--s6);
+  .over-section {
+    grid-template-columns: 1fr;
+    gap: var(--s6);
   }
 
-.over-title {
-margin-bottom: var(--s5);
+  .over-title {
+    margin-bottom: var(--s5);
   }
 
-.over-values {
-gap: var(--s3);
+  .over-values {
+    gap: var(--s3);
   }
 
 }
 
 @media (max-width: 640px) {
 
-.over-title {
-margin-bottom: var(--s4);
+  .over-title {
+    margin-bottom: var(--s4);
   }
 
-.over-img-row {
-gap: var(--s1);
+  .over-img-row {
+    gap: var(--s1);
+    row-gap: var(--s2);
   }
 
-.over-block {
-padding: var(--s5) 0;
+  .over-block {
+    padding: var(--s5) 0;
   }
 
-.over-value {
-padding-left: var(--s4);
+  .over-value {
+    padding-left: var(--s4);
   }
 
-.over-contact-btn {
-margin-top: var(--s5);
-  }
-
-}
-
-@media (max-width: 400px) {
-
-.over-img-row img {
-aspect-ratio: 1 / 1;
-  }
-
-}
-
-/* ============================================================
-   ONS TEAM (nu genest in over-left, vult de witruimte)
-   ============================================================ */
-
-.team-section {
-  margin-top: clamp(var(--s5), 4vw, var(--s6));
-  padding-top: var(--s5);
-  border-top: 1px solid rgba(20, 32, 51, 0.12);
-}
-
-.team-title {
-  font-size: clamp(1.1rem, 0.9rem + 1vw, 1.5rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: var(--s4);
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--s3);
-}
-
-.team-img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: var(--s2);
-  display: block;
-}
-
-/* ---- Tablet ---- */
-@media (max-width: 900px) {
-  .team-grid {
-    gap: var(--s2);
-  }
-}
-
-/* ---- Mobiel: kleinere gap, iets vierkanter beeld zodat gezichten goed passen ---- */
-@media (max-width: 640px) {
-  .team-section {
+  .over-contact-btn {
     margin-top: var(--s5);
-    padding-top: var(--s4);
   }
 
-  .team-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
-
-  .team-img {
-    aspect-ratio: 3 / 4;
-    border-radius: var(--s1);
-  }
 }
 
-/* ---- Zeer smal scherm: nog compacter zodat foto's niet te klein knijpen ---- */
 @media (max-width: 400px) {
-  .team-img {
+
+  .over-img-row img {
     aspect-ratio: 1 / 1;
   }
+
 }
 
 /* ============================================================
@@ -545,5 +485,12 @@ aspect-ratio: 1 / 1;
   }
   .diensten-col:first-child {
     grid-column: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .diensten-img,
+  .diensten-extra-img {
+    aspect-ratio: 16 / 10;
   }
 }
