@@ -9,6 +9,9 @@ const routes: Record<string, string> = {
   "/home": "home",
   "/diensten": "diensten",
   "/contact": "contact",
+  "/privacybeleid": "privacybeleid",
+  "/algemene-voorwaarden": "algemene-voorwaarden",
+  "/cookiepolicy": "cookiepolicy",
 };
 
 const mime: Record<string, string> = {
