@@ -3,6 +3,7 @@ const PORT = Deno.env.get("PORT") ? parseInt(Deno.env.get("PORT")!) : 8000;
 const FRONTEND_DIR = `${Deno.cwd()}/frontend`;
 const PUBLIC_DIR = `${Deno.cwd()}/public`;
 const DEV = Deno.env.get("DEV_LIVERELOAD") === "1";
+const PUBLIC_ORIGIN = Deno.env.get("PUBLIC_ORIGIN") ?? "https://nurseplus.site";
 
 const routes: Record<string, string> = {
   "/": "home",
@@ -93,9 +94,9 @@ async function assemblePage(pageName: string, headOnly: boolean, req: Request): 
 
     const pageCSSTag = meta.pageCSS ? `<link rel="stylesheet" href="${meta.pageCSS}" />` : "";
     const devScripts = DEV ? `<script src="/js/livereload.js"></script>` : "";
-    const origin = new URL(req.url).origin;
-    const ogImage = `${origin}/images/NursePlusCard.jpg?v=2`;
-    const ogUrl = `${origin}${normalize(new URL(req.url).pathname)}`;
+    const requestPath = normalize(new URL(req.url).pathname);
+    const ogImage = `${PUBLIC_ORIGIN}/images/NursePlusCard.jpg`;
+    const ogUrl = `${PUBLIC_ORIGIN}${requestPath}`;
 
     const html = template
       .replaceAll("{{title}}", meta.title)
