@@ -94,7 +94,7 @@ async function assemblePage(pageName: string, headOnly: boolean, req: Request): 
     const pageCSSTag = meta.pageCSS ? `<link rel="stylesheet" href="${meta.pageCSS}" />` : "";
     const devScripts = DEV ? `<script src="/js/livereload.js"></script>` : "";
     const origin = new URL(req.url).origin;
-    const ogImage = `${origin}/images/NursePlusCard.jpg`;
+    const ogImage = `${origin}/images/NursePlusCard.jpg?v=2`;
     const ogUrl = `${origin}${normalize(new URL(req.url).pathname)}`;
 
     const html = template
