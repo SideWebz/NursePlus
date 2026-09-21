@@ -3,7 +3,7 @@ const PORT = Deno.env.get("PORT") ? parseInt(Deno.env.get("PORT")!) : 8000;
 const FRONTEND_DIR = `${Deno.cwd()}/frontend`;
 const PUBLIC_DIR = `${Deno.cwd()}/public`;
 const DEV = Deno.env.get("DEV_LIVERELOAD") === "1";
-const PUBLIC_ORIGIN = Deno.env.get("PUBLIC_ORIGIN") ?? "https://nurseplus.site";
+const PUBLIC_ORIGIN = Deno.env.get("PUBLIC_ORIGIN") ?? "https://nurseplus.be";
 
 const routes: Record<string, string> = {
   "/": "home",
